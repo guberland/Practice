@@ -6,7 +6,6 @@ from .models import Catalog
 
 def catalog_list(request):
     catalogs = Catalog.objects.all()
-    output = ', '.join([str(catalog) for catalog in catalogs])
-    return HttpResponse(output)
+    return render(request,'catalogs/catalog_list.html', {'catalogs': catalogs})
 
 
