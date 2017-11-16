@@ -6,6 +6,12 @@
         <link rel="stylesheet" href="{% static 'css/layout.css' %}">
     </head>
     <body>
+        <div class="site-container">
+            <nav>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'catalog:list' %}">Menu</a>
+            </nav>
             {%block content %}{% endblock %}
+        </div>
     </body>
 </html>

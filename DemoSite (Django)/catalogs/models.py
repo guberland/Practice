@@ -15,8 +15,14 @@ class Catalog(models.Model):
 class Procedure(models.Model):
     title = models.CharField(max_length = 255)
     description = models.TextField()
+    content = models.TextField(blank=True,default="")
     order = models.IntegerField (default = 0)
     catalog = models.ForeignKey(Catalog)
+    
+    class Meta:
+        ordering = ['order',]
+    
+    
     
     def __str__(self):
         return self.title

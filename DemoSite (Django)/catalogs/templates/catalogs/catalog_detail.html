@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{%block title %}{{catalog.name}}{% endblock %}
+{%block content %}
+<article>
+    <h2>{{catalog.name}}</h2>
+        {{catalog.description}}
+
+        <section>
+            {% for procedure in catalog.procedure_set.all %}
+            <h3>
+                <a href="{%url 'catalog:procedure' catalog_pk=procedure.catalog.pk procedure_pk=procedure.pk %}">
+                    {{procedure.title}}
+                </a>
+            </h3>
+            {{procedure.description}}
+            {% endfor %}
+        </section>
+
+</article>
+
+{% endblock %}

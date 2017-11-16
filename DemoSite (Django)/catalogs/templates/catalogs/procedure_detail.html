@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{%block title %}{{procedure.title}} - {{procedure.catalog.name}}{% endblock %}
+{%block content %}
+<article>
+    <h2>
+        <a href="{% url 'catalog:detail' pk=procedure.catalog.pk %}">{{procedure.catalog.name}}
+        </a>
+    </h2>
+    <h3>{{procedure.title}}</h3>
+    {{ procedure.content|linebreaks }}
+
+</article>
+
+{% endblock %}

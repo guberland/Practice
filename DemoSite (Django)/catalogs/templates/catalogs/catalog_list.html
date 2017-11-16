@@ -1,4 +1,16 @@
-{% for catalog in catalogs %}
-<h2>{{catalog.name}}</h2>
-{{catalog.description}}
-{% endfor %}
+{% extends "layout.html" %}
+
+{% block title %}Available Catalogs {% endblock %}
+
+{% block content %}
+<div class="catalogs">
+    {% for catalog in catalogs %}
+    <div class="catalog">
+    <header><a href="{% url 'catalog:detail' pk=catalog.pk %}">{{catalog.name}}</a></header>
+        <div class="catalog-copy">
+            {{catalog.description}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -4,5 +4,13 @@ from django.contrib import admin
 
 from .models import Catalog,Procedure
 
-admin.site.register(Catalog)
+class StepInline(admin.StackedInline):
+    model = Procedure
+    
+class CatalogAdmin(admin.ModelAdmin):
+    inlines = [StepInline,]
+
+
+
+admin.site.register(Catalog,CatalogAdmin)
 admin.site.register(Procedure)
